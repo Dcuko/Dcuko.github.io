@@ -1,0 +1,13 @@
+{
+  "exemplo": true,
+  "atualizadoEm": "2026-10-26T00:00:00.000Z",
+  "totalRepos": 11,
+  "linguagens": [
+    { "nome": "TypeScript", "pct": 58.4 },
+    { "nome": "Python", "pct": 14.2 },
+    { "nome": "JavaScript", "pct": 11.3 },
+    { "nome": "HTML e CSS", "pct": 9.6 },
+    { "nome": "Outras", "pct": 6.5 }
+  ],
+  "porRepositorio": {}
+}

@@ -1,0 +1,48 @@
+---
+slug: perimo-access
+titulo: Perimo Access
+resumo: Gestão para academias num só sistema. Quem não pagou não passa na catraca; quem pagou passa em menos de um minuto.
+tipo: Sistema web
+situacao: Em andamento
+papel: Desenvolvimento
+status: publicado
+destaque: false
+ordem: 2
+capa: /projetos/perimo-access/capa.png
+capaAlt: Página inicial do Perimo Access
+stack_manual:
+  - TypeScript
+  - Next.js
+  - NestJS
+  - Prisma
+  - PostgreSQL
+  - Redis
+  - Playwright
+---
+
+<Texto>
+
+O Perimo Access reúne mensalidade, catraca, agenda, vendas e financeiro de academias pequenas e médias. A regra central é automática: quando o aluno atrasa e passa a tolerância, a catraca bloqueia; quando a recepção registra o pagamento, ela libera em menos de um minuto.
+
+O projeto está em desenvolvimento e ainda não tem endereço público.
+
+</Texto>
+
+<Titulo>Como funciona</Titulo>
+
+<Texto>
+
+- **Cobrança:** régua automática com lembrete, atraso, bloqueio após a tolerância e congelamento com retorno.
+- **Catraca:** um agente instalado na academia conversa com os leitores pela rede local (Control iD, Hikvision, Intelbras) e com a nuvem só por HTTPS de saída.
+- **Gestão:** tela inicial com recebido no mês, em aberto, inadimplência e radar de evasão; agenda de aulas com lista de espera; vendas e contas a pagar.
+- **Dados separados por academia:** cada academia só enxerga os próprios dados, garantido no banco (Postgres com RLS).
+
+</Texto>
+
+<Titulo>Por baixo</Titulo>
+
+<Texto>
+
+Monorepo com painel em Next.js, API em NestJS, filas em Redis e o agente local em TypeScript. O fluxo principal (matrícula, cobrança, pagamento, catraca libera, atraso, bloqueio) é coberto por teste de ponta a ponta com Playwright.
+
+</Texto>

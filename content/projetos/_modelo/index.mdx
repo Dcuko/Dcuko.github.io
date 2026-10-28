@@ -1,0 +1,46 @@
+---
+# MODELO — copie esta pasta, renomeie (ex.: content/projetos/meu-projeto/) e preencha.
+# Pastas que começam com _ não aparecem no site.
+slug: meu-projeto            # igual ao nome da pasta; só letras minúsculas, números e hífen
+titulo: Nome do projeto
+resumo: Uma frase (até 220 caracteres) que aparece na lista e no compartilhamento.
+tipo: Sistema web            # Sistema web, Site, App, API...
+situacao: No ar              # No ar, Em andamento, Concluído...
+cliente: Nome do cliente     # opcional
+papel: Desenvolvimento
+duracao: 3 meses             # opcional
+status: rascunho             # publicado | rascunho
+destaque: false              # true = vira a faixa laranja da home
+ordem: 3                     # menor número aparece primeiro
+capa: /projetos/meu-projeto/capa.png   # coloque a imagem em public/projetos/meu-projeto/
+capaAlt: Descrição da imagem para leitores de tela
+links:
+  online: https://exemplo.com.br        # opcional; sem ele aparece "Sem link público ainda"
+  repositorio: Dcuko/meu-repo           # opcional; se omitido aparece "Código privado"
+  extras:
+    - rotulo: Case no LinkedIn
+      url: https://linkedin.com/...
+stack_manual:
+  - TypeScript
+  - Next.js
+---
+
+<Texto>
+
+Escreva aqui em Markdown. Cada bloco abaixo é opcional e pode ser repetido em qualquer ordem.
+
+</Texto>
+
+<Titulo>Título de seção</Titulo>
+
+<Galeria fotos={[{ src: "/projetos/meu-projeto/tela-1.png", alt: "Tela de login", legenda: "Login" }]} />
+
+<Metricas itens={[{ valor: "40", sufixo: "%", legenda: "menos tempo no cadastro" }]} />
+
+<Depoimento autor="Nome, cargo">Texto do depoimento.</Depoimento>
+
+<Video youtube="ID_DO_VIDEO" />
+
+<Codigo arquivo="exemplo.ts">{`const ola = 'mundo';`}</Codigo>
+
+<Links itens={[{ rotulo: "Documentação", url: "https://exemplo.com" }]} />
