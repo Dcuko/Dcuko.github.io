@@ -15,16 +15,25 @@ export default function Home() {
   return (
     <>
       <section className="hero">
+        <div className="cena" aria-hidden="true">
+          <div className="sol-brilho">
+            <div className="sol" />
+          </div>
+          <div className="chao" />
+        </div>
         <div className="wrap">
           {site.disponivel && (
             <p className="selo-disp rotulo">
               <i aria-hidden="true" /> Aberto pra novos projetos
             </p>
           )}
-          <h1 className="titulo">
-            <span>Faço</span>
-            <span className="l2">software.</span>
-          </h1>
+          <p className="prompt" aria-hidden="true">
+            &gt; hello, world
+          </p>
+          <h1 className="titulo">{site.primeiroNome}</h1>
+          <p className="alias">
+            aka <b>{site.marca}</b> // {site.cargo.toLowerCase()}
+          </p>
           <div className="hero-corpo">
             <div className="hero-texto">
               <p>
@@ -52,7 +61,7 @@ export default function Home() {
                 </div>
               )}
               <div className="selo" aria-hidden="true">
-                Full
+                full
                 <br />
                 stack
               </div>
@@ -76,7 +85,7 @@ export default function Home() {
       </section>
 
       {destaque && (
-        <section className="faixa-laranja secao" aria-labelledby="t-destaque">
+        <section className="faixa-destaque secao" aria-labelledby="t-destaque">
           <div className="wrap destaque">
             <div>
               <p className="rotulo">Em destaque · {destaque.situacao}</p>
@@ -84,7 +93,7 @@ export default function Home() {
                 {destaque.titulo}
               </h2>
               <p>{destaque.resumo}</p>
-              <Link className="btn preto" href={`/projetos/${destaque.slug}/`}>
+              <Link className="btn rosa" href={`/projetos/${destaque.slug}/`}>
                 Ver o projeto →
               </Link>
             </div>
@@ -99,7 +108,7 @@ export default function Home() {
         </section>
       )}
 
-      <section className="faixa-preta secao" aria-labelledby="t-stack">
+      <section className="faixa-stack secao" aria-labelledby="t-stack">
         <div className="wrap">
           <div className="secao-topo">
             <h2 id="t-stack" className="titulo">
@@ -107,7 +116,7 @@ export default function Home() {
             </h2>
             <p className="rotulo">Direto do GitHub · {stack.totalRepos} repositórios</p>
           </div>
-          {stack.exemplo && <span className="pilula laranja stack-exemplo">Dados de exemplo</span>}
+          {stack.exemplo && <span className="pilula rosa stack-exemplo">Dados de exemplo</span>}
           <BarraStack itens={stack.linguagens} />
           <p className="stack-nota">
             Percentual de código por linguagem em todos os meus repositórios, inclusive os privados

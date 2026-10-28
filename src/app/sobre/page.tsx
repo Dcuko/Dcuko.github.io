@@ -69,7 +69,7 @@ export default function Sobre() {
           </ul>
         </div>
       </div>
-      <section className="faixa-preta secao" aria-labelledby="t-stack-sobre">
+      <section className="faixa-stack secao" aria-labelledby="t-stack-sobre">
         <div className="wrap">
           <div className="secao-topo">
             <h2 id="t-stack-sobre" className="titulo">
@@ -77,7 +77,7 @@ export default function Sobre() {
             </h2>
             <p className="rotulo">{stack.totalRepos} repositórios</p>
           </div>
-          {stack.exemplo && <span className="pilula laranja stack-exemplo">Dados de exemplo</span>}
+          {stack.exemplo && <span className="pilula rosa stack-exemplo">Dados de exemplo</span>}
           <BarraStack itens={stack.linguagens} />
         </div>
       </section>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/jetbrains-mono/index.css';
 import '../styles/globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: '#F2F2F0', width: 'device-width', initialScale: 1 };
+export const viewport: Viewport = { themeColor: '#090514', width: 'device-width', initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
