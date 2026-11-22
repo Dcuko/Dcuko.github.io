@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import '@fontsource/chakra-petch/500.css';
 import '@fontsource/chakra-petch/700.css';
-import '@fontsource-variable/noto-serif-display/wdth.css';
+import '@fontsource/anton/latin-400.css';
 import '@fontsource-variable/jetbrains-mono/index.css';
 import '../styles/globals.css';
 import { Header } from '@/components/Header';

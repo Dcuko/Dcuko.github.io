@@ -1,5 +1,5 @@
-/* ───────── Evangelion · tokens ─────────
-   Roxo (Unit-01) e verde neon, painéis hexagonais, tipografia Mincho,
+﻿/* ───────── Evangelion · tokens ─────────
+   Roxo (Unit-01) e verde neon, painéis hexagonais, tipografia Anton (sans ultra-condensada),
    faixas de alerta e leitura de "sync rate". */
 :root {
   --preto: #07040d;
@@ -20,7 +20,7 @@
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1320px;
   --fonte: 'Chakra Petch', 'Rajdhani', system-ui, sans-serif;
-  --serif: 'Noto Serif Display Variable', 'Noto Serif Display', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  --display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
   --mono: 'JetBrains Mono Variable', 'JetBrains Mono', Consolas, Menlo, monospace;
 }
 
@@ -155,13 +155,11 @@ a {
 
 /* ───────── tipografia ───────── */
 .titulo {
-  font-family: var(--serif);
-  font-stretch: 62.5%;
-  font-weight: 900;
+  font-family: var(--display);
+  font-weight: 400; /* a Anton só tem um peso; não deixa o navegador sintetizar negrito */
   font-style: normal;
   text-transform: uppercase;
-  letter-spacing: 0;
-  -webkit-text-stroke: 0.012em currentColor; /* engrossa os fios finos da serifa */
+  letter-spacing: 0.01em;
   line-height: 0.98;
   margin: 0;
   color: var(--branco);
@@ -315,9 +313,8 @@ a {
   min-height: 60px;
 }
 .logo {
-  font-family: var(--serif);
-  font-stretch: 62.5%;
-  font-weight: 900;
+  font-family: var(--display);
+  font-weight: 400;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -508,12 +505,11 @@ a {
   }
 }
 .cena .gigante {
-  font-family: var(--serif);
-  font-stretch: 62.5%;
+  font-family: var(--display);
   position: absolute;
   left: -1vw;
   bottom: -0.2em;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   font-size: clamp(120px, 26vw, 400px);
   line-height: 0.8;
