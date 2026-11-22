@@ -604,45 +604,6 @@ a {
   letter-spacing: 0.1em;
 }
 
-/* ───────── ticker ───────── */
-.faixa-ticker {
-  position: relative;
-  z-index: 1;
-  background: var(--acento);
-  color: var(--preto);
-  overflow: hidden;
-  border-block: 2px solid var(--branco);
-}
-.faixa-ticker .trilho {
-  display: flex;
-  width: max-content;
-  animation: corre 32s linear infinite;
-}
-.faixa-ticker span {
-  display: inline-flex;
-  align-items: center;
-  gap: 26px;
-  padding: 10px 26px 10px 0;
-  font-weight: 700;
-  font-style: italic;
-  font-size: clamp(18px, 2.2vw, 26px);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.faixa-ticker span::after {
-  content: '';
-  width: 12px;
-  height: 20px;
-  background: var(--preto);
-  transform: skewX(-30deg);
-}
-@keyframes corre {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* ───────── seções ───────── */
 .secao {
   padding-block: clamp(48px, 7vw, 96px);
@@ -1406,6 +1367,261 @@ a {
   color: var(--branco);
 }
 
+/* ───────── movimento ───────── */
+@keyframes entra {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+  }
+}
+@keyframes revela {
+  from {
+    clip-path: inset(0 100% 0 -2%);
+  }
+  to {
+    clip-path: inset(0 -8% 0 -2%);
+  }
+}
+@keyframes lamina-entra {
+  from {
+    translate: 140% 0;
+  }
+}
+@keyframes sobe {
+  to {
+    background-position: 0 -10px;
+  }
+}
+@keyframes sobe-fino {
+  to {
+    background-position: 0 -8px;
+  }
+}
+@keyframes deriva {
+  from {
+    translate: -2.5vw 0;
+  }
+  to {
+    translate: 2.5vw 0;
+  }
+}
+@keyframes flutua {
+  50% {
+    translate: 0 -10px;
+  }
+}
+@keyframes faixa {
+  to {
+    background-position-x: 17px;
+  }
+}
+@keyframes faixa-larga {
+  to {
+    background-position-x: 39.6px;
+  }
+}
+@keyframes tremor {
+  25% {
+    translate: -2px 0;
+  }
+  50% {
+    translate: 2px -1px;
+  }
+  75% {
+    translate: -1px 1px;
+  }
+}
+@keyframes barra {
+  from {
+    transform: skewX(-30deg) scaleY(0);
+  }
+}
+@keyframes progresso {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes paralaxe-a {
+  from {
+    transform: translateY(44px);
+  }
+  to {
+    transform: translateY(-44px);
+  }
+}
+@keyframes paralaxe-b {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+/* entrada do hero, em sequência */
+.hero .hud,
+.hero .selo-disp,
+.hero .prompt,
+.hero .alias,
+.hero-texto,
+.colagem {
+  animation: entra 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero .selo-disp {
+  animation-delay: 0.1s;
+}
+.hero .prompt {
+  animation-delay: 0.18s;
+}
+.hero h1 {
+  animation: revela 1s cubic-bezier(0.7, 0, 0.2, 1) 0.25s both;
+}
+.hero .alias {
+  animation-delay: 0.6s;
+}
+.hero-texto {
+  animation-delay: 0.7s;
+}
+.colagem {
+  animation-delay: 0.85s;
+}
+.cena .lamina {
+  animation: lamina-entra 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.cena .l1 {
+  animation-delay: 0.1s;
+}
+.cena .l2 {
+  animation-delay: 0.28s;
+}
+.cena .l3 {
+  animation: lamina-entra 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both, sobe 1.4s linear infinite;
+}
+.cena .l4 {
+  animation: lamina-entra 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both, sobe-fino 1.8s linear infinite;
+}
+
+/* movimento contínuo */
+.cena .gigante {
+  animation: deriva 18s ease-in-out infinite alternate;
+}
+.selo {
+  animation: flutua 4s ease-in-out infinite;
+}
+.topo::before {
+  animation: faixa 1s linear infinite;
+}
+.hazard {
+  animation: faixa-larga 2.4s linear infinite;
+}
+.logo:hover {
+  animation: tremor 0.3s steps(2);
+}
+
+/* o hero acompanha o mouse */
+.hero .cena {
+  inset: -24px;
+  translate: calc(var(--mx, 0) * -14px) calc(var(--my, 0) * -10px);
+  transition: translate 0.3s ease-out;
+}
+.hero h1 {
+  text-shadow: calc(0.045em + var(--mx, 0) * 0.025em) calc(0.045em + var(--my, 0) * 0.025em) 0 var(--acento);
+}
+.colagem .j1,
+.colagem .j2 {
+  transition: translate 0.3s ease-out;
+}
+.colagem .j1 {
+  translate: calc(var(--mx, 0) * 10px) calc(var(--my, 0) * 8px);
+}
+.colagem .j2 {
+  translate: calc(var(--mx, 0) * -10px) calc(var(--my, 0) * -8px);
+}
+
+/* brilho que passa pelo botão */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+  translate: -130% 0;
+  transition: translate 0.55s ease;
+  pointer-events: none;
+}
+.btn:hover::after {
+  translate: 130% 0;
+}
+
+/* blocos entram ao rolar (o Movimento.tsx marca e libera) */
+[data-r] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--atraso, 0ms),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--atraso, 0ms);
+}
+[data-r].vi {
+  opacity: 1;
+  transform: none;
+}
+.secao-topo[data-r].vi h2::before {
+  transform-origin: 50% 100%;
+  animation: barra 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+}
+/* a barra da stack cresce da esquerda, segmento por segmento */
+.stack-barra[data-r] {
+  opacity: 1;
+  transform: none;
+}
+.stack-barra[data-r] > i {
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.stack-barra[data-r].vi > i {
+  transform: none;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--n, 0) * 110ms);
+}
+.stack-barra > i:nth-child(2) {
+  --n: 1;
+}
+.stack-barra > i:nth-child(3) {
+  --n: 2;
+}
+.stack-barra > i:nth-child(4) {
+  --n: 3;
+}
+.stack-barra > i:nth-child(5) {
+  --n: 4;
+}
+.stack-barra > i:nth-child(6) {
+  --n: 5;
+}
+
+/* onde o navegador suporta, o scroll também anima */
+@supports (animation-timeline: scroll()) {
+  .topo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 3px;
+    background: var(--acento);
+    transform-origin: 0 50%;
+    animation: progresso linear both;
+    animation-timeline: scroll(root);
+  }
+  .colagem .j1 {
+    animation: paralaxe-a linear both;
+    animation-timeline: view();
+    animation-range: cover;
+  }
+  .colagem .j2 {
+    animation: paralaxe-b linear both;
+    animation-timeline: view();
+    animation-range: cover;
+  }
+}
+
 /* ───────── responsivo ───────── */
 @media (max-width: 899px) {
   .hero-corpo,
@@ -1456,6 +1672,11 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [data-r],
+  [data-r] > i {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   *,
   *::before,
   *::after {

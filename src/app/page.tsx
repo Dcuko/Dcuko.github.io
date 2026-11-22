@@ -81,18 +81,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="faixa-ticker" aria-hidden="true">
-        <div className="trilho">
-          {[0, 1].map((k) => (
-            <div key={k} style={{ display: 'flex' }}>
-              {['Ponta a ponta', 'Do MVP à entrega final', 'Pequenas soluções', 'Joguinhos no tempo livre'].map((t) => (
-                <span key={t}>{t}</span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
       <section className="secao" id="projetos" aria-labelledby="t-projetos">
         <div className="wrap">
           <div className="secao-topo">
