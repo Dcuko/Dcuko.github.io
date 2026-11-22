@@ -16,19 +16,27 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="cena" aria-hidden="true">
-          <div className="sol-brilho">
-            <div className="sol" />
-          </div>
-          <div className="chao" />
+          <div className="lamina l4" />
+          <div className="lamina l3" />
+          <div className="lamina l2" />
+          <div className="lamina l1" />
+          <span className="gigante">{site.marca}</span>
         </div>
         <div className="wrap">
+          <div className="hud" aria-hidden="true">
+            <span>
+              <b>NV//01</b> portfólio
+            </span>
+            <span>© {new Date().getFullYear()}</span>
+            <span>Rio de Janeiro, BR</span>
+          </div>
           {site.disponivel && (
             <p className="selo-disp rotulo">
               <i aria-hidden="true" /> Aberto pra novos projetos
             </p>
           )}
           <p className="prompt" aria-hidden="true">
-            &gt; hello, world
+            &gt; hello, world_
           </p>
           <h1 className="titulo">{site.primeiroNome}</h1>
           <p className="alias">
@@ -70,7 +78,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="secao" id="projetos" aria-labelledby="t-projetos" style={{ paddingTop: 0 }}>
+      <div className="faixa-ticker" aria-hidden="true">
+        <div className="trilho">
+          {[0, 1].map((k) => (
+            <div key={k} style={{ display: 'flex' }}>
+              {['Full stack', 'Sistemas para academias', 'Do banco à tela', 'Deploy incluso'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <section className="secao" id="projetos" aria-labelledby="t-projetos">
         <div className="wrap">
           <div className="secao-topo">
             <h2 id="t-projetos" className="titulo">
