@@ -1,23 +1,26 @@
-/* ───────── Neo-Vectorheart · tokens ─────────
-   Preto e branco dominantes, uma cor de acento, cortes a 45°/60°,
-   bordas duras (sem blur) e ruído de "game-grunge". */
+/* ───────── Evangelion · tokens ─────────
+   Roxo (Unit-01) e verde neon, painéis hexagonais, tipografia Mincho,
+   faixas de alerta e leitura de "sync rate". */
 :root {
-  --preto: #08080a;
-  --preto-2: #0e0e11;
-  --painel: #121216;
-  --cinza: #1d1d23;
-  --linha: #2e2e36;
-  --branco: #f2f2ee;
-  --mudo: #8e8e98;
-  --acento: #ff3340;
-  --acido: #c6ff3d;
+  --preto: #07040d;
+  --preto-2: #0d0818;
+  --painel: #120b22;
+  --cinza: #1c1230;
+  --linha: #35235f;
+  --branco: #efe6ff;
+  --mudo: #9a86c4;
+  --roxo: #8a3ffc;
+  --roxo-esc: #3a1a78;
+  --acento: #6bff3d;
+  --acido: #6bff3d;
 
-  --corte: 18px; /* chanfro de 45° */
+  --corte: 18px; /* chanfro dos painéis */
   --bw: 2px;
 
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1320px;
   --fonte: 'Chakra Petch', 'Rajdhani', system-ui, sans-serif;
+  --serif: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', 'MS PMincho', serif;
   --mono: 'JetBrains Mono Variable', 'JetBrains Mono', Consolas, Menlo, monospace;
 }
 
@@ -33,7 +36,7 @@ html {
 }
 body {
   margin: 0;
-  background: var(--preto);
+  background: radial-gradient(1200px 700px at 85% -10%, rgba(138, 63, 252, 0.28), transparent 60%), var(--preto);
   color: var(--branco);
   font-family: var(--fonte);
   font-weight: 500;
@@ -42,17 +45,17 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-/* grade técnica fixa */
+/* malha hexagonal (campo A.T.) */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(242, 242, 238, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(242, 242, 238, 0.035) 1px, transparent 1px);
-  background-size: 80px 80px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'><path fill='rgba(138,63,252,0.2)' fill-rule='evenodd' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/></svg>");
+  background-size: 56px 98px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%);
+  mask-image: linear-gradient(180deg, #000, transparent 85%);
 }
 /* ruído grunge */
 body::after {
@@ -152,8 +155,9 @@ a {
 
 /* ───────── tipografia ───────── */
 .titulo {
-  font-weight: 700;
-  font-style: italic;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-style: normal;
   text-transform: uppercase;
   letter-spacing: 0.01em;
   line-height: 0.98;
@@ -193,7 +197,7 @@ a {
 }
 .prosa strong {
   color: var(--branco);
-  box-shadow: inset 0 -0.45em 0 rgba(255, 51, 64, 0.55);
+  box-shadow: inset 0 -0.45em 0 rgba(107, 255, 61, 0.35);
 }
 .prosa a {
   font-weight: 700;
@@ -223,7 +227,7 @@ a {
   max-width: 100%;
   overflow-wrap: anywhere;
   /* paralelogramo a 60° */
-  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
   transition: background 0.15s, color 0.15s, transform 0.15s;
 }
 .btn:hover {
@@ -231,7 +235,7 @@ a {
   transform: translateX(4px);
 }
 .btn.claro {
-  background: var(--branco);
+  background: var(--roxo);
   color: var(--branco);
 }
 .btn.claro::before {
@@ -240,7 +244,7 @@ a {
   inset: 2px;
   z-index: -1;
   background: var(--preto);
-  clip-path: polygon(13px 0, 100% 0, calc(100% - 13px) 100%, 0 100%);
+  clip-path: polygon(13px 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 13px 100%, 0 50%);
   transition: background 0.15s;
 }
 .btn.claro:hover {
@@ -251,11 +255,12 @@ a {
   background: var(--acento);
 }
 .btn.rosa {
-  background: var(--branco);
-  color: var(--preto);
+  background: var(--roxo);
+  color: var(--branco);
 }
 .btn.rosa:hover {
   background: var(--acento);
+  color: var(--preto);
 }
 .btn:disabled {
   opacity: 0.5;
@@ -289,10 +294,10 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(8, 8, 10, 0.92);
+  background: rgba(7, 4, 13, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 2px solid var(--branco);
+  border-bottom: 2px solid var(--roxo);
 }
 .topo::before {
   content: '';
@@ -308,11 +313,11 @@ a {
   min-height: 60px;
 }
 .logo {
+  font-family: var(--serif);
   display: inline-flex;
   align-items: center;
   gap: 12px;
   font-weight: 700;
-  font-style: italic;
   font-size: 26px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -356,7 +361,7 @@ a {
 
 /* ───────── janela técnica ───────── */
 .janela {
-  --edge: var(--branco);
+  --edge: var(--roxo);
   --fill: var(--preto);
   --corte: 22px;
 }
@@ -405,7 +410,6 @@ a {
 }
 .janela .tela.sem-capa b {
   font-weight: 700;
-  font-style: italic;
   text-transform: uppercase;
 }
 
@@ -432,39 +436,85 @@ a {
   transform: skewX(-30deg);
 }
 .cena .l1 {
-  right: 6%;
-  width: clamp(120px, 22vw, 340px);
-  background: var(--acento);
+  right: 3%;
+  width: clamp(120px, 20vw, 300px);
+  background: linear-gradient(180deg, rgba(138, 63, 252, 0.85), rgba(58, 26, 120, 0.9));
+  border-left: 3px solid var(--roxo);
 }
 .cena .l2 {
-  right: calc(6% + clamp(120px, 22vw, 340px) + 18px);
-  width: 14px;
-  background: var(--branco);
+  right: calc(3% + clamp(120px, 20vw, 300px) + 16px);
+  width: 6px;
+  background: var(--acento);
+  box-shadow: 0 0 18px rgba(107, 255, 61, 0.7);
 }
 .cena .l3 {
-  right: calc(6% + clamp(120px, 22vw, 340px) + 52px);
-  width: clamp(60px, 10vw, 150px);
-  background: repeating-linear-gradient(0deg, var(--branco) 0 2px, transparent 2px 10px);
-  opacity: 0.35;
+  right: calc(3% + clamp(120px, 20vw, 300px) + 40px);
+  width: clamp(50px, 9vw, 130px);
+  background: repeating-linear-gradient(0deg, var(--acento) 0 2px, transparent 2px 10px);
+  opacity: 0.28;
 }
 .cena .l4 {
-  right: -4%;
+  right: -6%;
   width: clamp(40px, 7vw, 100px);
-  border-left: 2px solid var(--branco);
-  background: repeating-linear-gradient(0deg, rgba(242, 242, 238, 0.16) 0 1px, transparent 1px 8px);
+  border-left: 2px solid var(--roxo);
+  background: repeating-linear-gradient(0deg, rgba(138, 63, 252, 0.3) 0 1px, transparent 1px 8px);
+}
+/* campo A.T.: hexágonos concêntricos */
+.cena .hexes {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: clamp(340px, 54vw, 800px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  overflow: visible;
+}
+.hexes .h1 {
+  fill: none;
+  stroke: var(--roxo);
+  stroke-width: 3;
+}
+.hexes .h2 {
+  fill: none;
+  stroke: var(--acento);
+  stroke-width: 1.5;
+  stroke-dasharray: 10 8;
+  transform-origin: 300px 300px;
+  animation: gira 40s linear infinite;
+}
+.hexes .h3 {
+  fill: rgba(138, 63, 252, 0.12);
+  stroke: var(--roxo);
+  stroke-width: 2;
+  animation: respira 4s ease-in-out infinite;
+}
+.hexes .mira {
+  stroke: var(--acento);
+  stroke-width: 1;
+  opacity: 0.55;
+}
+@keyframes gira {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes respira {
+  50% {
+    fill: rgba(107, 255, 61, 0.1);
+  }
 }
 .cena .gigante {
+  font-family: var(--serif);
   position: absolute;
   left: -1vw;
   bottom: -0.2em;
   font-weight: 700;
-  font-style: italic;
   text-transform: uppercase;
   font-size: clamp(120px, 26vw, 400px);
   line-height: 0.8;
   letter-spacing: -0.02em;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(242, 242, 238, 0.12);
+  -webkit-text-stroke: 1.5px rgba(138, 63, 252, 0.22);
   white-space: nowrap;
   user-select: none;
 }
@@ -527,7 +577,7 @@ a {
   font-size: clamp(54px, 15vw, 210px);
   line-height: 0.9;
   letter-spacing: 0.01em;
-  text-shadow: 0.045em 0.045em 0 var(--acento);
+  text-shadow: 0.045em 0.045em 0 var(--roxo);
 }
 .hero .alias {
   font-family: var(--mono);
@@ -590,9 +640,9 @@ a {
   z-index: 3;
   width: clamp(84px, 9vw, 120px);
   aspect-ratio: 1;
-  background: var(--branco);
+  background: var(--acento);
   color: var(--preto);
-  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
   display: grid;
   place-items: center;
   text-align: center;
@@ -624,7 +674,6 @@ a {
   gap: 26px;
   padding: 10px 26px 10px 0;
   font-weight: 700;
-  font-style: italic;
   font-size: clamp(18px, 2.2vw, 26px);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -881,9 +930,10 @@ a {
 /* destaque: faixa branca invertida */
 .faixa-destaque {
   position: relative;
-  background: var(--branco);
-  color: var(--preto);
+  background: linear-gradient(135deg, #2b1259 0%, #4a2394 55%, #6b32c7 100%);
+  color: var(--branco);
   overflow: hidden;
+  border-block: 2px solid var(--acento);
 }
 .faixa-destaque::before {
   content: '';
@@ -892,8 +942,8 @@ a {
   bottom: 0;
   right: 0;
   width: min(34vw, 460px);
-  background: repeating-linear-gradient(-45deg, rgba(8, 8, 10, 0.9) 0 3px, transparent 3px 14px);
-  opacity: 0.16;
+  background: repeating-linear-gradient(-45deg, rgba(107, 255, 61, 0.9) 0 2px, transparent 2px 14px);
+  opacity: 0.18;
   pointer-events: none;
 }
 .destaque {
@@ -906,27 +956,26 @@ a {
 .destaque h2 {
   font-size: clamp(34px, 6vw, 86px);
   margin: 14px 0 20px;
-  color: var(--preto);
+  color: var(--branco);
   text-shadow: 0.05em 0.05em 0 var(--acento);
 }
 .destaque p {
   font-size: clamp(16px, 1.4vw, 19px);
   max-width: 42ch;
   margin: 0 0 26px;
-  color: #2a2a30;
+  color: #e0d2ff;
 }
 .destaque p.rotulo {
   margin: 0;
-  color: #4a4a52;
+  color: #cdb8ff;
   font-size: 12px;
 }
 .destaque .btn {
-  background: var(--preto);
-  color: var(--branco);
-}
-.destaque .btn:hover {
   background: var(--acento);
   color: var(--preto);
+}
+.destaque .btn:hover {
+  background: var(--branco);
 }
 
 /* stack */
@@ -972,7 +1021,6 @@ a {
 .stack-legenda .pct {
   grid-column: 2;
   font-weight: 700;
-  font-style: italic;
   font-size: clamp(28px, 3.2vw, 42px);
   line-height: 1.05;
   color: var(--cor, var(--branco));
@@ -1003,7 +1051,6 @@ a {
 }
 .rodape-cta h2 em {
   color: var(--acento);
-  font-style: italic;
 }
 .rodape-cta .acoes {
   display: flex;
@@ -1017,8 +1064,8 @@ a {
   border-block: 2px solid var(--branco);
 }
 .rodape {
-  background: var(--branco);
-  color: var(--preto);
+  background: var(--roxo-esc);
+  color: var(--branco);
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.08em;
@@ -1038,7 +1085,7 @@ a {
   flex-wrap: wrap;
 }
 .rodape a {
-  color: var(--preto);
+  color: var(--branco);
   text-decoration-color: var(--acento);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
@@ -1066,7 +1113,7 @@ a {
   font-size: clamp(40px, 10vw, 140px);
   margin: 14px 0 clamp(20px, 3vw, 36px);
   overflow-wrap: anywhere;
-  text-shadow: 0.045em 0.045em 0 var(--acento);
+  text-shadow: 0.045em 0.045em 0 var(--roxo);
 }
 .proj-topo .resumo {
   font-size: clamp(18px, 1.8vw, 24px);
@@ -1152,7 +1199,7 @@ a {
   color: var(--mudo);
 }
 .bloco-video {
-  --edge: var(--branco);
+  --edge: var(--roxo);
   --fill: var(--preto);
   aspect-ratio: 16 / 9;
 }
@@ -1165,7 +1212,7 @@ a {
   border: 0;
 }
 .bloco-codigo {
-  --edge: var(--branco);
+  --edge: var(--roxo);
   --fill: var(--preto);
 }
 .bloco-codigo .rotulo {
@@ -1192,14 +1239,12 @@ a {
 }
 .metricas .valor {
   font-weight: 700;
-  font-style: italic;
   font-size: clamp(44px, 6.4vw, 88px);
   line-height: 1;
   color: var(--branco);
-  text-shadow: 0.05em 0.05em 0 var(--acento);
+  text-shadow: 0.05em 0.05em 0 var(--roxo);
 }
 .metricas .valor em {
-  font-style: italic;
   color: var(--acento);
   text-shadow: none;
 }
@@ -1218,7 +1263,6 @@ a {
   margin: 0;
   font-size: clamp(20px, 2.4vw, 32px);
   font-weight: 700;
-  font-style: italic;
   line-height: 1.25;
 }
 .depoimento blockquote::before {
@@ -1302,7 +1346,7 @@ a {
   font-size: clamp(44px, 11vw, 150px);
   margin-top: 10px;
   overflow-wrap: anywhere;
-  text-shadow: 0.045em 0.045em 0 var(--acento);
+  text-shadow: 0.045em 0.045em 0 var(--roxo);
 }
 .duas-colunas {
   display: grid;
@@ -1311,7 +1355,7 @@ a {
   padding-bottom: clamp(48px, 7vw, 100px);
 }
 .sobre-lista {
-  --edge: var(--branco);
+  --edge: var(--roxo);
   --corte: 26px;
   list-style: none;
   padding: 0;
@@ -1388,7 +1432,7 @@ a {
   color: var(--acido);
 }
 .contato-cartao {
-  --edge: var(--branco);
+  --edge: var(--roxo);
   --corte: 26px;
   padding: clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px) clamp(32px, 4vw, 52px);
   align-self: start;
@@ -1396,7 +1440,6 @@ a {
 }
 .contato-cartao a.mail {
   font-weight: 700;
-  font-style: italic;
   font-size: clamp(20px, 2.6vw, 34px);
   line-height: 1.15;
   text-underline-offset: 6px;

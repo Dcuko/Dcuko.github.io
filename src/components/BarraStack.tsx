@@ -1,6 +1,6 @@
 import type { Linguagem } from '@/lib/stack';
 
-const CORES = ['#ff3340', '#f2f2ee', '#a9a9b2', '#6c6c76', '#43434b', '#2b2b31'];
+const CORES = ['#6bff3d', '#8a3ffc', '#b78bff', '#5a2ea8', '#3a1a78', '#24124d'];
 
 export function BarraStack({ itens }: { itens: Linguagem[]; tema?: 'escuro' | 'claro' }) {
   const cor = (i: number) => CORES[i % CORES.length];

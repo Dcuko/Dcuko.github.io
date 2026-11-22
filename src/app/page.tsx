@@ -19,6 +19,13 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="cena" aria-hidden="true">
+          <svg className="hexes" viewBox="0 0 600 600" aria-hidden="true">
+            <polygon className="h1" points="580,300 440,542.5 160,542.5 20,300 160,57.5 440,57.5" />
+            <polygon className="h2" points="520,300 410,490.5 190,490.5 80,300 190,109.5 410,109.5" />
+            <polygon className="h3" points="450,300 375,430 225,430 150,300 225,170 375,170" />
+            <line className="mira" x1="0" y1="300" x2="600" y2="300" />
+            <line className="mira" x1="300" y1="0" x2="300" y2="600" />
+          </svg>
           <div className="lamina l4" />
           <div className="lamina l3" />
           <div className="lamina l2" />
@@ -28,7 +35,7 @@ export default function Home() {
         <div className="wrap">
           <div className="hud" aria-hidden="true">
             <span>
-              <b>NV//01</b> portfólio
+              <b>SYS//DCUKO</b> online
             </span>
             <span>© {new Date().getFullYear()}</span>
             <span>Rio de Janeiro, BR</span>
@@ -85,7 +92,7 @@ export default function Home() {
         <div className="trilho">
           {[0, 1].map((k) => (
             <div key={k} style={{ display: 'flex' }}>
-              {['Ponta a ponta', 'Do MVP à entrega final', 'Pequenas soluções', 'Joguinhos no tempo livre'].map((t) => (
+              {['警告 warning', 'Ponta a ponta', 'Do MVP à entrega final', 'Pequenas soluções', 'Joguinhos no tempo livre'].map((t) => (
                 <span key={t}>{t}</span>
               ))}
             </div>

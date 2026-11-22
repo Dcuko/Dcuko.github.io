@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import '@fontsource/chakra-petch/500.css';
 import '@fontsource/chakra-petch/700.css';
-import '@fontsource/chakra-petch/700-italic.css';
+import '@fontsource/shippori-mincho-b1/latin-800.css';
 import '@fontsource-variable/jetbrains-mono/index.css';
 import '../styles/globals.css';
 import { Header } from '@/components/Header';
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: '#08080A', width: 'device-width', initialScale: 1 };
+export const viewport: Viewport = { themeColor: '#07040D', width: 'device-width', initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
