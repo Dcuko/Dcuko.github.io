@@ -20,7 +20,7 @@
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1320px;
   --fonte: 'Chakra Petch', 'Rajdhani', system-ui, sans-serif;
-  --serif: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', 'MS PMincho', serif;
+  --serif: 'Noto Serif Display Variable', 'Noto Serif Display', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
   --mono: 'JetBrains Mono Variable', 'JetBrains Mono', Consolas, Menlo, monospace;
 }
 
@@ -156,10 +156,12 @@ a {
 /* ───────── tipografia ───────── */
 .titulo {
   font-family: var(--serif);
-  font-weight: 800;
+  font-stretch: 62.5%;
+  font-weight: 900;
   font-style: normal;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
+  -webkit-text-stroke: 0.012em currentColor; /* engrossa os fios finos da serifa */
   line-height: 0.98;
   margin: 0;
   color: var(--branco);
@@ -314,6 +316,8 @@ a {
 }
 .logo {
   font-family: var(--serif);
+  font-stretch: 62.5%;
+  font-weight: 900;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -505,6 +509,7 @@ a {
 }
 .cena .gigante {
   font-family: var(--serif);
+  font-stretch: 62.5%;
   position: absolute;
   left: -1vw;
   bottom: -0.2em;
@@ -574,7 +579,7 @@ a {
   margin: 0 0 6px;
 }
 .hero h1 {
-  font-size: clamp(54px, 15vw, 210px);
+  font-size: clamp(70px, 19.5vw, 273px);
   line-height: 0.9;
   letter-spacing: 0.01em;
   text-shadow: 0.045em 0.045em 0 var(--roxo);
@@ -707,7 +712,7 @@ a {
   border-bottom: 2px solid var(--branco);
 }
 .secao-topo h2 {
-  font-size: clamp(34px, 6vw, 80px);
+  font-size: clamp(44px, 7.8vw, 104px);
 }
 .secao-topo h2::before {
   content: '';
@@ -769,7 +774,7 @@ a {
   -webkit-text-stroke-color: var(--preto);
 }
 .linha .nome {
-  font-size: clamp(26px, 5vw, 64px);
+  font-size: clamp(34px, 6.5vw, 83px);
   overflow-wrap: anywhere;
   color: inherit;
 }
@@ -868,7 +873,7 @@ a {
   color: var(--preto);
 }
 .repo-nome {
-  font-size: clamp(24px, 2.4vw, 32px);
+  font-size: clamp(24px, 2.3vw, 31px);
   overflow-wrap: anywhere;
   color: inherit;
 }
@@ -919,7 +924,7 @@ a {
   margin-bottom: 14px;
 }
 .principios h3 {
-  font-size: clamp(24px, 2.6vw, 34px);
+  font-size: clamp(31px, 3.4vw, 44px);
   margin-bottom: 12px;
 }
 .principios p {
@@ -954,7 +959,7 @@ a {
   align-items: center;
 }
 .destaque h2 {
-  font-size: clamp(34px, 6vw, 86px);
+  font-size: clamp(44px, 7.8vw, 112px);
   margin: 14px 0 20px;
   color: var(--branco);
   text-shadow: 0.05em 0.05em 0 var(--acento);
@@ -1046,7 +1051,7 @@ a {
   padding-block: clamp(56px, 8vw, 110px);
 }
 .rodape-cta h2 {
-  font-size: clamp(48px, 12vw, 170px);
+  font-size: clamp(62px, 15.6vw, 221px);
   margin-top: 10px;
 }
 .rodape-cta h2 em {
@@ -1110,7 +1115,7 @@ a {
   color: var(--acento);
 }
 .proj-topo h1 {
-  font-size: clamp(40px, 10vw, 140px);
+  font-size: clamp(52px, 13.0vw, 182px);
   margin: 14px 0 clamp(20px, 3vw, 36px);
   overflow-wrap: anywhere;
   text-shadow: 0.045em 0.045em 0 var(--roxo);
@@ -1159,7 +1164,7 @@ a {
   margin-top: clamp(28px, 4vw, 52px);
 }
 .proj-corpo h2 {
-  font-size: clamp(28px, 4.6vw, 60px);
+  font-size: clamp(36px, 6.0vw, 78px);
 }
 .proj-corpo h2::before {
   content: '';
@@ -1328,7 +1333,7 @@ a {
   background: var(--preto);
 }
 .prox h2 {
-  font-size: clamp(34px, 8vw, 110px);
+  font-size: clamp(44px, 10.4vw, 143px);
   margin-top: 10px;
   color: var(--preto);
   transition: transform 0.2s;
@@ -1343,7 +1348,7 @@ a {
   padding-bottom: clamp(24px, 4vw, 48px);
 }
 .pagina-topo h1 {
-  font-size: clamp(44px, 11vw, 150px);
+  font-size: clamp(57px, 14.3vw, 195px);
   margin-top: 10px;
   overflow-wrap: anywhere;
   text-shadow: 0.045em 0.045em 0 var(--roxo);
