@@ -1,6 +1,6 @@
 # Portfólio · Augusto Neves (Dcuko)
 
-Site estático em Next.js, visual "Quadra". Hospedagem: GitHub Pages.
+Portfólio de Augusto Neves: site estático em Next.js com estética Neo-Vectorheart, hospedado no GitHub Pages. A stack e os repositórios abertos vêm direto do GitHub e se atualizam todo dia.
 
 ## Rodar local
 ```
@@ -24,8 +24,8 @@ Crie o componente em `src/components/blocos/index.tsx` e inclua no objeto `bloco
 ## Publicar
 1. Crie o repositório público `Dcuko.github.io` e suba esta pasta.
 2. Settings > Pages > Source: **GitHub Actions**.
-3. Settings > Secrets > Actions: crie `STACK_TOKEN` (token fine-grained, somente leitura, todos os repositórios, permissão Metadata).
-4. Sem o token o site publica normalmente, mas o gráfico de stack mostra "Dados de exemplo".
+3. A stack e a seção "Código aberto" são geradas por `scripts/stack.mjs` a cada push e todo dia às 06:17 UTC (workflow `publicar.yml`). Funciona sem configurar nada, só com os repositórios públicos.
+4. Opcional: Settings > Secrets > Actions: crie `STACK_TOKEN` (token fine-grained, somente leitura, todos os repositórios, permissão Metadata) para o gráfico de linguagens contar também os repositórios privados.
 5. Domínio .dev: Settings > Pages > Custom domain, e troque `url` em `site.config.ts`.
 
-Segurança: o `stack.json` só tem percentuais e contagem; nomes de repositórios privados nunca saem.
+Segurança: o `stack.json` só tem percentuais e contagem; nomes de repositórios privados nunca saem. O `repos.json` lista apenas repositórios públicos.

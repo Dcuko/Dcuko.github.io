@@ -3,6 +3,8 @@ import { Janela } from '@/components/Janela';
 import { ListaProjetos } from '@/components/ListaProjetos';
 import { BarraStack } from '@/components/BarraStack';
 import { listarProjetos } from '@/lib/projetos';
+import { ListaRepos } from '@/components/ListaRepos';
+import { lerRepos } from '@/lib/repos';
 import { lerStack, formatarData } from '@/lib/stack';
 import { site } from '@/site.config';
 
@@ -11,6 +13,7 @@ export default function Home() {
   const destaque = projetos.find((p) => p.destaque) ?? projetos[0];
   const hero = projetos.slice(0, 2);
   const stack = lerStack();
+  const abertos = lerRepos();
 
   return (
     <>
@@ -40,13 +43,13 @@ export default function Home() {
           </p>
           <h1 className="titulo">{site.primeiroNome}</h1>
           <p className="alias">
-            aka <b>{site.marca}</b> // {site.cargo.toLowerCase()}
+            aka <b>{site.marca}</b> // programador desde {site.desde}
           </p>
           <div className="hero-corpo">
             <div className="hero-texto">
               <p>
-                {site.nome}, {site.cargo.toLowerCase()}. Sistemas de ponta a ponta para academias:
-                do banco de dados à tela que o cliente usa.
+                Faço sistemas de ponta a ponta, do MVP à entrega final. Também crio pequenas soluções e,
+                no tempo livre, uns joguinhos.
               </p>
               <div className="acoes">
                 <Link className="btn" href="/projetos/">
@@ -82,7 +85,7 @@ export default function Home() {
         <div className="trilho">
           {[0, 1].map((k) => (
             <div key={k} style={{ display: 'flex' }}>
-              {['Full stack', 'Sistemas para academias', 'Do banco à tela', 'Deploy incluso'].map((t) => (
+              {['Ponta a ponta', 'Do MVP à entrega final', 'Pequenas soluções', 'Joguinhos no tempo livre'].map((t) => (
                 <span key={t}>{t}</span>
               ))}
             </div>
@@ -101,6 +104,20 @@ export default function Home() {
             </Link>
           </div>
           <ListaProjetos projetos={projetos} />
+        </div>
+      </section>
+
+      <section className="secao" id="abertos" aria-labelledby="t-abertos" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="secao-topo">
+            <h2 id="t-abertos" className="titulo">
+              Código aberto
+            </h2>
+            <a className="rotulo" href={`https://github.com/${site.github}`} target="_blank" rel="noopener noreferrer">
+              {abertos.repos.length} repositórios no GitHub ↗
+            </a>
+          </div>
+          <ListaRepos repos={abertos.repos} />
         </div>
       </section>
 
@@ -128,6 +145,36 @@ export default function Home() {
         </section>
       )}
 
+      <section className="secao" aria-labelledby="t-como">
+        <div className="wrap">
+          <div className="secao-topo">
+            <h2 id="t-como" className="titulo">
+              Como eu trabalho
+            </h2>
+          </div>
+          <ol className="principios">
+            <li>
+              <h3 className="titulo">Ponta a ponta</h3>
+              <p>
+                Programo desde {site.desde}. Levo o sistema inteiro: do MVP até a entrega final.
+              </p>
+            </li>
+            <li>
+              <h3 className="titulo">Pequenas soluções</h3>
+              <p>
+                Também resolvo problemas menores com ferramenta sob medida e, no tempo livre, faço joguinhos.
+              </p>
+            </li>
+            <li>
+              <h3 className="titulo">IA é ferramenta</h3>
+              <p>
+                IA não é pra fazer tudo, é pra ajudar. O que ela fizer, eu preciso saber como foi feito e por quê.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
       <section className="faixa-stack secao" aria-labelledby="t-stack">
         <div className="wrap">
           <div className="secao-topo">
@@ -136,11 +183,11 @@ export default function Home() {
             </h2>
             <p className="rotulo">Direto do GitHub · {stack.totalRepos} repositórios</p>
           </div>
-          {stack.exemplo && <span className="pilula rosa stack-exemplo">Dados de exemplo</span>}
           <BarraStack itens={stack.linguagens} />
           <p className="stack-nota">
-            Percentual de código por linguagem em todos os meus repositórios, inclusive os privados
-            (só os números aparecem aqui, nunca o conteúdo). Atualizado em {formatarData(stack.atualizadoEm)}.
+            Percentual de código por linguagem nos meus repositórios
+            {stack.incluiPrivados ? ', inclusive os privados (só os números aparecem aqui, nunca o conteúdo)' : ' públicos'}.
+            Atualiza sozinho todo dia. Última leitura: {formatarData(stack.atualizadoEm)}.
           </p>
         </div>
       </section>

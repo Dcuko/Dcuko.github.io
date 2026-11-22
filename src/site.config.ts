@@ -3,9 +3,10 @@ export const site = {
   marca: 'Dcuko',
   nome: 'Augusto Neves',
   primeiroNome: 'Augusto',
-  cargo: 'Desenvolvedor full stack',
+  cargo: 'Programador',
+  desde: 2020,
   descricao:
-    'Portfólio de Augusto Neves, desenvolvedor full stack. Software para academias, do desenho ao deploy.',
+    'Portfólio de Augusto Neves, programador desde 2020. Sistemas de ponta a ponta, do MVP à entrega final.',
   // Endereço público. Troque quando registrar o domínio .dev.
   url: 'https://dcuko.github.io',
   email: 'augustonf2005@gmail.com',

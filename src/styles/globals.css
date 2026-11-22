@@ -763,6 +763,121 @@ a {
   }
 }
 
+/* repositórios abertos */
+.repos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 12px;
+}
+.repos li {
+  display: flex;
+}
+.repo {
+  --corte: 18px;
+  --edge: var(--linha);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 22px 24px 20px 30px;
+  text-decoration: none;
+  background: var(--edge);
+  clip-path: polygon(var(--corte) 0, 100% 0, 100% calc(100% - var(--corte)), calc(100% - var(--corte)) 100%, 0 100%, 0 var(--corte));
+  transition: transform 0.15s;
+}
+.repo::before {
+  content: '';
+  position: absolute;
+  inset: var(--bw);
+  z-index: -1;
+  background: var(--fill, var(--painel));
+  clip-path: polygon(calc(var(--corte) - var(--bw) * 0.59) 0, 100% 0, 100% calc(100% - var(--corte) + var(--bw) * 0.59), calc(100% - var(--corte) + var(--bw) * 0.59) 100%, 0 100%, 0 calc(var(--corte) - var(--bw) * 0.59));
+}
+.repo:hover,
+.repo:focus-visible {
+  --edge: var(--acento);
+  --fill: var(--acento);
+  color: var(--preto);
+  transform: translateY(-4px);
+  outline: none;
+}
+.repo:hover .rotulo,
+.repo:hover .repo-desc {
+  color: var(--preto);
+}
+.repo:hover .rotulo::before {
+  background: var(--preto);
+}
+.repo:hover .pilula {
+  border-color: var(--preto);
+  background: transparent;
+  color: var(--preto);
+}
+.repo-nome {
+  font-size: clamp(24px, 2.4vw, 32px);
+  overflow-wrap: anywhere;
+  color: inherit;
+}
+.repo-desc {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #c9c9d0;
+}
+.repo-rodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.repo-ir {
+  margin-left: auto;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* princípios */
+.principios {
+  list-style: none;
+  counter-reset: p;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 12px;
+}
+.principios li {
+  counter-increment: p;
+  padding: 24px 26px 26px;
+  border-top: 4px solid var(--acento);
+  background: var(--painel);
+}
+.principios li::before {
+  content: '0' counter(p);
+  display: block;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--acento);
+  margin-bottom: 14px;
+}
+.principios h3 {
+  font-size: clamp(24px, 2.6vw, 34px);
+  margin-bottom: 12px;
+}
+.principios p {
+  margin: 0;
+  color: #c9c9d0;
+}
+
 /* destaque: faixa branca invertida */
 .faixa-destaque {
   position: relative;
@@ -877,10 +992,6 @@ a {
   color: var(--mudo);
   max-width: 78ch;
 }
-.stack-exemplo {
-  display: inline-block;
-  margin-bottom: 16px;
-}
 
 /* ───────── rodapé / CTA ───────── */
 .rodape-cta {
@@ -931,10 +1042,6 @@ a {
   text-decoration-color: var(--acento);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
-}
-.rodape .lema {
-  flex-basis: 100%;
-  color: #4a4a52;
 }
 
 /* ───────── página de projeto ───────── */

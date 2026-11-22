@@ -1,8 +1,8 @@
 {
   "usuario": "Dcuko",
   "incluirPrivados": true,
-  "ignorarRepos": [],
-  "linguagensIgnoradas": [],
+  "ignorarRepos": ["Dcuko"],
+  "linguagensIgnoradas": ["MDX"],
   "agrupar": { "HTML": "HTML e CSS", "CSS": "HTML e CSS", "SCSS": "HTML e CSS" },
   "quantasMostrar": 5
 }

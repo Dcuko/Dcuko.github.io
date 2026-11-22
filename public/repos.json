@@ -1,0 +1,59 @@
+{
+  "atualizadoEm": "2026-11-22T22:46:11.806Z",
+  "repos": [
+    {
+      "nome": "Dcuko.github.io",
+      "descricao": "Site estático em Next.js, visual \"Quadra\". Hospedagem: GitHub Pages.",
+      "linguagem": "TypeScript",
+      "url": "https://github.com/Dcuko/Dcuko.github.io",
+      "site": null,
+      "estrelas": 0,
+      "atualizadoEm": "2026-11-22T22:29:05Z"
+    },
+    {
+      "nome": "Web-Coup",
+      "descricao": "Versão web peer-to-peer do jogo de cartas Coup para jogar com amigos. Site estático (GitHub Pages). Sem Node, sem Docker, sem servidor dedicado.",
+      "linguagem": "JavaScript",
+      "url": "https://github.com/Dcuko/Web-Coup",
+      "site": null,
+      "estrelas": 0,
+      "atualizadoEm": "2026-11-22T06:14:47Z"
+    },
+    {
+      "nome": "AI-Tracker",
+      "descricao": "Sobreposição pequena, translúcida e click-through para Windows 11 que mostra o limite restante da assinatura das suas IAs de código: Claude Code, Codex CLI e Antigravity.",
+      "linguagem": "Python",
+      "url": "https://github.com/Dcuko/AI-Tracker",
+      "site": null,
+      "estrelas": 0,
+      "atualizadoEm": "2026-11-11T02:49:03Z"
+    },
+    {
+      "nome": "Copy-to-Up",
+      "descricao": "A browser extension (Manifest V3, TypeScript) for Chromium browsers. Click any file upload field and it shows the file you just copied, next to your last 4 attached files.",
+      "linguagem": "TypeScript",
+      "url": "https://github.com/Dcuko/Copy-to-Up",
+      "site": null,
+      "estrelas": 0,
+      "atualizadoEm": "2026-10-31T14:27:31Z"
+    },
+    {
+      "nome": "Jully",
+      "descricao": "A background voice assistant for Windows. Say the wake word and speak your request.",
+      "linguagem": "Python",
+      "url": "https://github.com/Dcuko/Jully",
+      "site": null,
+      "estrelas": 0,
+      "atualizadoEm": "2026-10-29T21:23:58Z"
+    },
+    {
+      "nome": "MapIM",
+      "descricao": "Site do mapa do campus de Nova Iguaçu (IM) da UFRRJ. É possível pesquisar salas e departamentos ou navegar pelo mapa de cada andar.",
+      "linguagem": "JavaScript",
+      "url": "https://github.com/Dcuko/MapIM",
+      "site": null,
+      "estrelas": 0,
+      "atualizadoEm": "2026-10-29T19:35:17Z"
+    }
+  ]
+}

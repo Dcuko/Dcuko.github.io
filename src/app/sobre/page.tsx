@@ -21,13 +21,15 @@ export default function Sobre() {
         <div className="duas-colunas">
           <div className="prosa">
             <p>
-              Sou {site.nome}, {site.cargo.toLowerCase()}. Cuido do projeto inteiro: modelagem do banco,
-              API, telas e o deploy.
+              Sou {site.nome}, programador desde {site.desde}. Faço sistemas de ponta a ponta: do MVP até a
+              entrega final.
             </p>
             <p>
-              Hoje trabalho em dois produtos para academias: o <strong>Perimo Fit</strong>, de avaliação
-              física, e o <strong>Perimo Access</strong>, que cuida de mensalidade, catraca e financeiro.
-              Nos dois a regra é a mesma: software que o dono da academia consegue usar sem treinamento.
+              Também desenvolvo pequenas soluções e, no tempo livre, faço joguinhos.
+            </p>
+            <p>
+              Uso IA como <strong>ferramenta de apoio</strong>, não pra fazer tudo. O que ela fizer, eu
+              preciso saber como foi feito e por quê.
             </p>
             <p>
               <Link href="/contato/">Tem um projeto? Fala comigo.</Link>
@@ -39,8 +41,12 @@ export default function Sobre() {
               <span>{site.nome}</span>
             </li>
             <li>
+              <span>Desde</span>
+              <span>{site.desde}</span>
+            </li>
+            <li>
               <span>Atuação</span>
-              <span>Full stack</span>
+              <span>Ponta a ponta</span>
             </li>
             <li>
               <span>GitHub</span>
@@ -77,7 +83,6 @@ export default function Sobre() {
             </h2>
             <p className="rotulo">{stack.totalRepos} repositórios</p>
           </div>
-          {stack.exemplo && <span className="pilula rosa stack-exemplo">Dados de exemplo</span>}
           <BarraStack itens={stack.linguagens} />
         </div>
       </section>

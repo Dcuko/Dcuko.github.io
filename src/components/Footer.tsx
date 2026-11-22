@@ -37,7 +37,6 @@ export function Footer() {
             )}
             <a href={`mailto:${site.email}`}>E-mail</a>
           </nav>
-          <span className="lema">feito com energético, bug e teimosia</span>
         </div>
       </footer>
     </>

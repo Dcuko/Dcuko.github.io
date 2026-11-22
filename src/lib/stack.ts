@@ -3,7 +3,7 @@ import path from 'node:path';
 
 export type Linguagem = { nome: string; pct: number };
 export type Stack = {
-  exemplo?: boolean;
+  incluiPrivados?: boolean;
   atualizadoEm: string;
   totalRepos: number;
   linguagens: Linguagem[];
